@@ -11,6 +11,10 @@ https://drive.google.com/drive/folders/12JxrQQVW-_b6PRHZyqJB_fO-PF_3rQe4?usp=sha
 https://repl.it/languages/javascript
 
 
+### Jetbrains student
+
+https://www.jetbrains.com/community/education/#students
+
 ## Monitoria
 
 * Telegram: https://t.me/iimperiali
