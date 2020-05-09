@@ -1,12 +1,85 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
+  <meta charset="UTF-8">
   <title>Page Title</title>
+
+<style type="text/css">
+  h3 { color: red }
+  .segunda h3 {color: blue}
+  [name='exemplo'] { border-color: green}
+  #campo { background: aquamarine }
+</style>
+
 </head>
 <body>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+<label>
+  Escrever seu nome
+  <input id="campo">
+
+  <input name="exemplo">
+  <input name="exemplo2">
+
+</label>
+
+<h1></h1>
+<h2 class="posicao"></h2>
+
+<div class="primeira">
+  <p>1</p>
+  <h3></h3> <!-- primeiro -->
+  <div></div>
+</div>
+<div class="segunda">
+  <p>2</p>
+  <h3></h3> <!-- segundo -->
+  <div></div>
+</div>
+
+<script>
+  let $campo = document.getElementById('campo')
+  let $campoQS = document.querySelector('#campo')
+
+  let $h1 = document.getElementsByTagName('h1')[0]
+  let $h1QS = document.querySelector('h1')  // primeiro elemento html que bate com a query
+  let $h1_QS = document.querySelectorAll('h1')[0]
+
+  let $h2 = document.getElementsByClassName('posicao')[0]
+  let $h2QS = document.querySelector('.posicao')  // primeiro elemento html que bate com a query
+  let $h2_QS = document.querySelectorAll('.posicao')[0]
+
+  let $exemplo = document.getElementsByName('exemplo')[0]
+  let $exemploQS = document.querySelector('[name="exemplo"]')  // primeiro elemento html que bate com a query
+  let $exemplo_QS = document.querySelectorAll('[name="exemplo"]')[0]
+
+  $exemplo.style = 'background: yellow'
+  $exemplo.style.background = 'yellow'
+
+  document.querySelector('.primeira').querySelector('h3').innerText = 'primeiro'
+
+  document.querySelector('.segunda h3').innerText = 'segundo'
+
+
+  $campo.addEventListener('mouseover', (e) => {
+    $h1.innerText = 'ola'
+  })
+
+  $campo.addEventListener('mousemove', () => {
+    $h1.innerText += '!'
+  })
+
+  $campo.addEventListener('mouseleave', (e) => {
+    $h1.innerText = ''
+  })
+
+  document.addEventListener('mousemove', (e) => {
+    $h2.innerText = `${e.pageX} x ${e.pageY}`
+  })
+
+
+</script>
+
 
 </body>
 </html>
