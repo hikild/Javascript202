@@ -36,7 +36,7 @@
   <h3></h3> <!-- segundo -->
   <div></div>
 </div>
-
+<span class="js_clique">clicavel</span>
 <script>
   let $campo = document.getElementById('campo')
   let $campoQS = document.querySelector('#campo')
@@ -75,6 +75,11 @@
 
   document.addEventListener('mousemove', (e) => {
     $h2.innerText = `${e.pageX} x ${e.pageY}`
+  })
+
+  let $clique = document.querySelector('.js_clique')
+  $clique.addEventListener('click', (e) => {
+    alert('houve um clique')
   })
 
 

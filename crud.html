@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Tarefas</h1>
+
+<div>
+  <labe>
+    <input name="nome" class="js_nome">
+  </labe>
+  <button class="js_adicionar">Adicionar</button>
+</div>
+
+<h3>pra fazer</h3>
+
+<ul class="js_lista">   <!-- -->
+
+</ul>
+
+<!---
+
+só possa adicionar uma tarefa se algo for prenchido
+adicionar uma tarefa apertando a tecla ENTER
+quando clicar 1x na tarefa, marcar/desmarcar como feita
+quando clicar 2x na tarefa, removida
+
+N listas de tarefa
+
+--->
+
+</body>
+<script>
+  let $adicionar = document.querySelector('.js_adicionar')
+  $adicionar.addEventListener('click', (e) => {
+    let $nome = document.querySelector('.js_nome')
+    let nome = $nome.value
+
+    let $lista = document.querySelector('.js_lista')
+    let $li = document.createElement('li')
+    $li.innerText = nome
+    $lista.append($li)
+
+
+  })
+
+</script>
+</html>
