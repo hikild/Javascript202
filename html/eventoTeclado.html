@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<input class="js_teste">
+<script>
+
+  let $teste = document.querySelector('.js_teste')
+
+  $teste.addEventListener('keydown', (e) =>{
+    console.log('keydown', $teste.value, e)
+  })
+
+  $teste.addEventListener('keypress', (e) =>{
+    console.log('keypress', $teste.value, e)
+  })
+
+  $teste.addEventListener('keyup', (e) =>{
+    console.log('keyup', $teste.value, e)
+    e.preventDefault()
+  })
+
+</script>
+</body>
+</html>
