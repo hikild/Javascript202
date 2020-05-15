@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style type="text/css">
+    .feito { text-decoration: line-through }
+  </style>
+</head>
+<body>
+
+<h1>Tarefas 1</h1>
+
+<div>
+  <label>
+    nome
+    <input name="nome" class="js_nome">
+  </label>
+  <button class="js_adicionar">Adicionar</button>
+  <h3>pra fazer</h3>
+
+  <ul class="js_lista">   <!-- -->
+  </ul>
+</div>
+
+
+<h1>Tarefas 2</h1>
+
+<div>
+  <label>
+    nome
+    <input name="nome" class="js_nome">
+  </label>
+  <button class="js_adicionar">Adicionar</button>
+  <h3>pra fazer</h3>
+
+  <ul class="js_lista">   <!-- -->
+  </ul>
+</div>
+
+<!---
+
+só possa adicionar uma tarefa se algo for prenchido
+adicionar uma tarefa apertando a tecla ENTER
+quando clicar 1x na tarefa, marcar/desmarcar como feita
+quando clicar 2x na tarefa, removida
+
+N listas de tarefa
+
+--->
+
+</body>
+<script>
+  let $listaAdicionar = document.querySelectorAll('.js_adicionar')
+  for(let $adicionar of $listaAdicionar){
+
+    $adicionar.addEventListener('click', (e) => {
+      let $pai = e.target.parentNode
+
+      let $nome = $pai.querySelector('.js_nome')
+      let $lista = $pai.querySelector('.js_lista')
+
+      adicionarItemNaLista($nome.value, $lista, $nome)
+    })
+
+  }
+
+  let $listaCampo = document.querySelectorAll('.js_nome')
+  for(let $campo of $listaCampo){
+
+    $campo.addEventListener('keydown', (e) => {
+      if(e.keyCode === 13 || e.key === 'Enter') {
+        let $nome = e.target
+        let $pai = $nome.parentNode.parentNode
+
+        let $lista = $pai.querySelector('.js_lista')
+
+        adicionarItemNaLista($nome.value, $lista, $nome)
+      }
+    })
+
+  }
+
+  function adicionarItemNaLista(nome, $lista, $nome) {
+    nome = nome.trim()
+    if(!nome){
+      // se nome vazio, não adicionar
+      return
+    }
+
+    let $li = document.createElement('li')
+    $li.innerText = nome
+    $lista.append($li)
+
+    $li.addEventListener('click', (e) => {
+      marcarOuDesmarcar($li)
+    })
+
+    $li.addEventListener('dblclick', (e) => {
+      $li.remove()
+    })
+
+    $nome.value = ''
+    $nome.focus()
+  }
+
+  function marcarOuDesmarcar($el) {
+    if($el.classList.contains('feito')){
+      $el.classList.remove('feito')
+    } else {
+      $el.classList.add('feito')
+    }
+  }
+
+
+</script>
+</html>
