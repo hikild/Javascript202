@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style type="text/css">
+    .feito { text-decoration: line-through }
+  </style>
+</head>
+<body>
+
+<h1>Tarefas 1</h1>
+
+<div>
+  <labe>
+    <input name="nome" class="js_nome">
+  </labe>
+  <button class="js_adicionar">Adicionar</button>
+  <h3>pra fazer</h3>
+
+  <ul class="js_lista">   <!-- -->
+  </ul>
+</div>
+
+
+<!---
+
+só possa adicionar uma tarefa se algo for prenchido
+adicionar uma tarefa apertando a tecla ENTER
+quando clicar 1x na tarefa, marcar/desmarcar como feita
+quando clicar 2x na tarefa, removida
+
+N listas de tarefa
+
+--->
+
+</body>
+<script>
+  let $adicionar = document.querySelector('.js_adicionar')
+  let $nome = document.querySelector('.js_nome')
+  let $lista = document.querySelector('.js_lista')
+
+
+  // RECUPERANDO no inicio da aplicacao
+  let LISTA = []
+  let lista_serializada = localStorage.getItem('lista')
+  if (lista_serializada){
+    LISTA = JSON.parse(lista_serializada)
+  }
+  for(let item of LISTA){
+    addLista(item)
+  }
+
+  $adicionar.addEventListener('click', (e) => {
+    adicionarItemNaLista($nome.value)
+  })
+
+  $nome.addEventListener('keydown', ({keyCode, key}) =>{
+    if(keyCode === 13 || key === 'Enter'){
+      adicionarItemNaLista($nome.value)
+    }
+  })
+
+  function addLista(nome) {
+    let $li = document.createElement('li')
+    $li.innerText = nome
+    $lista.append($li)
+
+    $li.addEventListener('click', (e) => {
+      marcarOuDesmarcar($li)
+    })
+
+    $li.addEventListener('dblclick', (e) => {
+      $li.remove()
+    })
+  }
+
+  function adicionarItemNaLista(nome) {
+    nome = nome.trim()
+    if(!nome){
+      // se nome vazio, não adicionar
+      return
+    }
+    addLista(nome)
+
+    // guardando em "disco"
+    LISTA.push(nome)
+    localStorage.setItem('lista', JSON.stringify(LISTA))
+
+    $nome.value = ''
+    $nome.focus()
+  }
+
+  function marcarOuDesmarcar($el) {
+    if($el.classList.contains('feito')){
+      $el.classList.remove('feito')
+    } else {
+      $el.classList.add('feito')
+    }
+  }
+
+
+</script>
+</html>
