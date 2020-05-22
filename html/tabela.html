@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.css"
+        crossorigin="anonymous">
+</head>
+<body class="d-flex flex-column h-100">
+
+<!-- Begin page content -->
+<main role="main" class="flex-shrink-0">
+  <div class="container">
+    <h1 class="m-5">Primeira tabela</h1>
+
+    <table class="table table-striped table-bordered js-tabela">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Sobrenome</th>
+        <th scope="col">Twitter</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+
+    <button class="btn btn-outline-info rounded-pill js-adicionar">+</button>
+
+
+  </div>
+</main>
+
+<script>
+  let $adicionar = document.querySelector('.js-adicionar')
+
+  let contador = 0;
+
+  $adicionar.addEventListener('click', (e) => {
+    e.preventDefault()
+
+    let $table = document.querySelector('.js-tabela > tbody')
+
+    let $row = $table.insertRow(-1);
+    let $celula1 = $row.insertCell(-1)
+    let $celula2 = $row.insertCell(-1)
+    let $celula3 = $row.insertCell(-1)
+    let $celula4 = $row.insertCell(-1)
+
+    $celula1.innerText = `${contador}`
+    $celula2.innerText = '2'
+    $celula3.innerText = '3'
+    $celula4.innerText = '4'
+
+    contador++
+
+  })
+
+
+</script>
+
+</body>
+</html>
