@@ -18,7 +18,7 @@
       <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Nome</th>
+        <th scope="col" coluna="nome">Nome</th>
         <th scope="col">Sobrenome</th>
         <th scope="col">Twitter</th>
       </tr>
@@ -28,33 +28,47 @@
       </tbody>
     </table>
 
-    <button class="btn btn-outline-info rounded-pill js-adicionar">+</button>
+    <form class="form js-formulario">
+      <h3>preencher</h3>
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input name="nome" id="nome" type="email" class="form-control js-campo-1">
+      </div>
+      <div class="form-group">
+        <label for="sobrenome">Sobrenome</label>
+        <input name="sobrenome" id="sobrenome" class="form-control js-campo-2">
+      </div>
+      <div class="form-group">
+        <label for="twitter">Twitter</label>
+        <input name="twitter" id="twitter" class="form-control js-campo-3">
+      </div>
 
-
+      <button class="btn btn-outline-info rounded-pill js-adicionar">+</button>
+    </form>
   </div>
 </main>
 
 <script>
   let $adicionar = document.querySelector('.js-adicionar')
 
-  let contador = 0;
+  let contador = 0
 
   $adicionar.addEventListener('click', (e) => {
     e.preventDefault()
 
     let $table = document.querySelector('.js-tabela > tbody')
 
-    let $row = $table.insertRow(-1);
+    let $row = $table.insertRow(-1)
     let $celula1 = $row.insertCell(-1)
-    let $celula2 = $row.insertCell(-1)
-    let $celula3 = $row.insertCell(-1)
-    let $celula4 = $row.insertCell(-1)
+
+    let $campos = document.querySelectorAll('.js-formulario input')
+
+    for(let $campo of $campos){
+      let $celula = $row.insertCell(-1)
+      $celula.innerText = $campo.value
+    }
 
     $celula1.innerText = `${contador}`
-    $celula2.innerText = '2'
-    $celula3.innerText = '3'
-    $celula4.innerText = '4'
-
     contador++
 
   })
