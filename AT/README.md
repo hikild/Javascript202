@@ -2,6 +2,9 @@
 
 Objetivo do trabalho é criar um registro de todas as compras de moedas estrangeiras que possuo. Consultando dados da API [https://exchangeratesapi.io/](https://exchangeratesapi.io/) da data da compra e convertendo para Reais nos dias de hoje.
 
+![Mockup](https://github.com/ebertti/Javascript202/blob/master/AT/CarteiraMoedas.png?raw=true)
+
+
 ## Primeira Parte
 
 Para cadastrar uma compra preciso saber o valor comprado na moeda, (ex: se foi comprado dólares, registrar o valor em DOLAR), a moeda comprada (No mínimo 5 moedas além do BRL) e a data de sua compra (dia, mês e ano)
@@ -32,8 +35,6 @@ Em seguida, exibir o valor total de riquezas acumulados, que é a soma em reais 
 ## Pontos de usabilidade / Armazenamento
 
 Quando uma moeda for adicionada ou removida, o relatório deverá ser recalculado, utilizar o bootstrap4, os registros de compras no localstorage, então, quando os dados forem adicionados ou removidos, eles devem ser armazenados no localstorage. E quando a aplicação for reaberta, ele deve exibir os dados que foram salvos anteriormente.
-
-![Diagrama](https://github.com/ebertti/Javascript202/blob/master/AT/CarteiraMoedas.png?raw=true)
 
 ## Entrega
 
