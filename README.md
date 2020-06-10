@@ -19,7 +19,13 @@ https://www.jetbrains.com/community/education/#students
 
 * https://viacep.com.br/
 
+## AT
 
+#### Enunciado:
+https://github.com/ebertti/Javascript202/blob/master/AT/README.md
+
+#### Exemplo:
+https://ebertti.github.io/Javascript202/entendido.html
 
 ## Monitoria
 
